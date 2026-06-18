@@ -1,99 +1,141 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Skema Warna Hijau Emerald & Gelap */
+    --primary: #22c55e;        /* Hijau emerald terang */
+    --primary-hover: #16a34a;  /* Hijau emerald agak gelap untuk hover */
+    --bg-dark: #090d16;        /* Latar belakang utama halaman */
+    --bg-sidebar: #0f172a;     /* Latar belakang sidebar (slate-900) */
+    --bg-card: rgba(30, 41, 59, 0.4); /* Latar kartu semi-transparan (glassmorphism) */
+    --bg-card-hover: rgba(30, 41, 59, 0.6);
+    
+    /* Warna Teks */
+    --text-main: #f8fafc;      /* Putih terang */
+    --text-muted: #94a3b8;     /* Abu-abu slate */
+    --text-inverse: #090d16;   /* Hitam untuk teks di tombol saat hover */
+    
+    /* Garis Batas / Border */
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-hover: rgba(34, 197, 94, 0.3);
+    
+    /* Font & Efek Transisi Sederhana (Hanya untuk warna, tidak ada efek gerak) */
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+    --transition-simple: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex; 
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky; 
+    top: 0;
+    height: 100vh;
 }
 
 .navbar {
-    background-color: #111;
-    padding: 20px 40px;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: sticky;
-    top: 0;
-    z-index: 100; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .nav-brand a {
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 800;
     text-decoration: none;
     letter-spacing: 2px;
+    text-transform: uppercase;
 } 
 
 .nav-brand span {
-    color: #2196f3; 
+    color: var(--primary); 
+    padding-left: 2px;
 }
 
-.nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 35px; 
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: color 0.3s ease; 
-}
-
-.nav-links a:hover {
-    color: #2196f3;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.container{
+.profile {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
-.sidebar{
-    width: 280px;
+.profile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    padding: 5px;
+    background: var(--bg-dark);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+}
+
+.profile h2 {
+    color: var(--text-main);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+/* Tombol Kunjungi Profil */
+.profile button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: 1.5px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    font-family: var(--font-family);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-simple);
+}
+
+.profile button:hover {
+    background-color: var(--primary);
+    color: var(--text-inverse); 
+}
+
+main {
+    flex: 1; 
+    background-color: var(--bg-dark);
     min-height: 100vh;
-    background: #111;
-}
-.profile h2{
-    color:white;
-    margin-top:15px;
+    display: flex;
+    flex-direction: column;
 }
 
-.profile p{
-    color:#ccc;
-    margin-top:10px;
-}
-
-.profile button{
-    margin-top:20px;
-    padding:12px 20px;
-    border:1px solid #2196f3;
-    background:none;
-    color:#2196f3;
-    border-radius:30px;
-    cursor:pointer;
-}
-main{
-    flex: 1;
-    background-color: #2b2b2b;
-    min-height: 100vh;
-}
-
-.profile{
-    text-align:center;
-    margin-top: 80px;
-}
-
-.profile img{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
-
-.hero{
-    height: 400px;
-    background-image: url(../image/forest.jpg);
+/* Hero Section */
+.hero {
+    height: 380px;
+    background-image: linear-gradient(to bottom, rgba(9, 13, 22, 0.4), rgba(9, 13, 22, 0.95)), url('../image/forest.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -101,25 +143,100 @@ main{
     align-items: center;
 }
 
-.hero h1{
-    color: white;
-    font-size: 60px;
+.hero h1 {
+    color: var(--text-main);
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
 }
 
-.posts{
-    padding: 40px;
-    background-color: #444;
-    margin-top: -100px;
+.posts {
+    padding: 0 50px 60px 50px;
+    margin-top: -80px; 
     position: relative;
     z-index: 10;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 960px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.card{
-    background: #111;
-    color: white;
-    padding: 30px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-main);
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-simple);
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    transition: var(--transition-simple);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8; 
+    font-weight: 400;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+    }
+    
+    .navbar {
+        margin-bottom: 25px;
+    }
+    
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .profile button {
+        margin-top: 20px;
+        padding: 10px 24px;
+    }
+    
+    .hero {
+        height: 250px;
+    }
+    
+    .hero h1 {
+        font-size: 38px;
+    }
+    
+    .posts {
+        margin-top: -40px;
+        padding: 0 20px 40px 20px;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 25px;
+    }
 }
