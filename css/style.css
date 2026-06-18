@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: flex;
+}
+
+.sidebar{
+    width: 280px;
+    min-height: 100vh;
+    background: #111;
+}
+.profile h2{
+    color:white;
+    margin-top:15px;
+}
+
+.profile p{
+    color:#ccc;
+    margin-top:10px;
+}
+
+.profile button{
+    margin-top:20px;
+
+    padding:12px 20px;
+
+    border:1px solid #2196f3;
+
+    background:none;
+
+    color:#2196f3;
+
+    border-radius:30px;
+
+    cursor:pointer;
+}
+main{
+    flex: 1;
+}
+
+.profile{
+    text-align:center;
+    margin-top: 80px;
+}
+
+.profile img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.hero{
+    height: 400px;
+    background-image: url(../image/forest.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1{
+    color: white;
+    font-size: 60px;
+}
+
+.posts{
+    padding: 40px;
+    background-color: #444;
+}
+
+.card{
+    background: #111;
+    color: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12 px rgba(0,0,0,0.3);
+}
